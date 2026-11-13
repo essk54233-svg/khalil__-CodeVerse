@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131c">
+  <title>CodeVerse | عالم تعلم البرمجة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="#" id="homeLink">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span>Code<span>Verse</span></span>
+    </a>
+
+    <nav class="main-nav">
+      <button class="nav-link active" data-view="home">الرئيسية</button>
+      <button class="nav-link" data-view="library">مكتبة اللغات</button>
+      <button class="nav-link" data-view="progress">تقدمي</button>
+    </nav>
+
+    <div class="top-actions">
+      <span class="online-dot"></span>
+      <span class="top-label">منصة التعلم</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active-view">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="eyebrow"><span></span> بوابتك إلى عالم البرمجة</div>
+          <h1>تعلّم البرمجة.<br><span>وابنِ مستقبلك.</span></h1>
+          <p>مسارات تعليمية منظمة، أمثلة عملية، تمارين واختبارات. ابدأ من الصفر وتقدم خطوة بخطوة.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="startLearning">ابدأ التعلم <span>←</span></button>
+            <button class="secondary-btn" id="browseLibrary">استكشف اللغات</button>
+          </div>
+          <div class="hero-stats">
+            <div><strong id="languageCount">20</strong><span>مسار تعليمي</span></div>
+            <div><strong id="lessonsPerPath">15</strong><span>درساً في المسار</span></div>
+            <div><strong id="completedCount">0</strong><span>درس مكتمل</span></div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="code-window">
+            <div class="window-head"><i></i><i></i><i></i><span>main.js</span></div>
+            <div class="code-lines">
+              <p><b>01</b> <span class="purple">const</span> future = <span class="green">"Developer"</span>;</p>
+              <p><b>02</b> <span class="purple">function</span> <span class="blue">learn</span>() {</p>
+              <p><b>03</b> &nbsp; <span class="purple">return</span> practice();</p>
+              <p><b>04</b> }</p>
+              <p><b>05</b> <span class="blue">learn</span>();</p>
+              <p class="cursor-line">06 <span class="cursor"></span></p>
+            </div>
+          </div>
+          <div class="floating-tag tag-one">HTML</div>
+          <div class="floating-tag tag-two">JS</div>
+          <div class="floating-tag tag-three">PY</div>
+        </div>
+      </div>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div><span class="section-kicker">ابدأ رحلتك</span><h2>مسارات شائعة</h2></div>
+          <button class="text-btn" data-view="library">عرض المكتبة ←</button>
+        </div>
+        <div class="language-grid" id="featuredGrid"></div>
+      </section>
+
+      <section class="learning-banner">
+        <div>
+          <span class="section-kicker">طريقة التعلم</span>
+          <h2>لا تحفظ الأكواد فقط.<br>افهم كيف تعمل.</h2>
+          <p>كل مرحلة تجمع بين الشرح والمثال والتطبيق، حتى تفهم ما تكتبه ولماذا تكتبه.</p>
+        </div>
+        <div class="banner-symbol">&lt;/&gt;</div>
+      </section>
+    </section>
+
+    <section id="libraryView" class="view">
+      <div class="page-heading">
+        <span class="section-kicker">اكتشف وتعلم</span>
+        <h1>مكتبة اللغات</h1>
+        <p>اختر مسارك التعليمي وابدأ من الأساسيات.</p>
+      </div>
+
+      <div class="library-tools">
+        <div class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="ابحث عن لغة أو تقنية...">
+          <kbd>بحث</kbd>
+        </div>
+        <div class="filter-row" id="filterRow">
+          <button class="filter-btn active" data-category="all">الكل</button>
+          <button class="filter-btn" data-category="web">تطوير الويب</button>
+          <button class="filter-btn" data-category="general">لغات البرمجة</button>
+          <button class="filter-btn" data-category="data">البيانات</button>
+          <button class="filter-btn" data-category="systems">الأنظمة</button>
+          <button class="filter-btn" data-category="other">أخرى</button>
+        </div>
+      </div>
+
+      <div class="results-info"><span id="resultsCount"></span><span>اختر لغة لعرض دروسها</span></div>
+      <div class="language-grid" id="libraryGrid"></div>
+      <div class="empty-state hidden" id="emptyState">لم نعثر على نتائج. جرّب كلمة أخرى.</div>
+    </section>
+
+    <section id="courseView" class="view">
+      <div class="course-top">
+        <button class="back-btn" id="backToLibrary" type="button" aria-label="العودة إلى مكتبة اللغات">
+          <span class="back-icon" aria-hidden="true">→</span>
+          <span class="back-text">العودة إلى المكتبة</span>
+        </button>
+        <div class="course-title-row">
+          <div class="course-logo" id="courseLogo"></div>
+          <div><span class="section-kicker">المسار التعليمي</span><h1 id="courseName"></h1><p id="courseDescription"></p></div>
+        </div>
+        <div class="course-progress">
+          <div><span>تقدمك في هذا المسار</span><strong id="coursePercent">0%</strong></div>
+          <div class="progress-track"><span id="courseProgressBar"></span></div>
+        </div>
+      </div>
+
+      <div class="course-layout">
+        <aside class="lesson-sidebar">
+          <div class="sidebar-heading"><strong>محتوى المسار</strong><span id="lessonTotal"></span></div>
+          <div id="lessonList"></div>
+        </aside>
+        <article class="lesson-content" id="lessonContent"></article>
+      </div>
+    </section>
+
+    <section id="progressView" class="view">
+      <div class="page-heading">
+        <span class="section-kicker">إنجازاتك</span>
+        <h1>رحلتك التعليمية</h1>
+        <p>تابع ما أنجزته واستمر في التقدم.</p>
+      </div>
+      <div class="progress-overview">
+        <div class="overview-card"><span>الدروس المكتملة</span><strong id="totalDone">0</strong><small>درس</small></div>
+        <div class="overview-card"><span>المسارات التي بدأت بها</span><strong id="startedCourses">0</strong><small>مسار</small></div>
+        <div class="overview-card"><span>إجمالي الدروس</span><strong id="totalLessons">120</strong><small>درس</small></div>
+      </div>
+      <div class="section-heading progress-heading"><div><span class="section-kicker">تفاصيل التعلم</span><h2>المسارات الخاصة بك</h2></div></div>
+      <div class="progress-list" id="progressList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">&lt;/&gt; CodeVerse</div>
+    <p>تعلّم اليوم، واصنع شيئاً يستحق أن يُبنى.</p>
+    <span>© 2026 CodeVerse</span>
+  </footer>
+
+  <script src="foundations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
